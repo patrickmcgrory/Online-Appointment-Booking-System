@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="main.css">
 			<div class="header">
 				<ul>
-					<li style="float:left;border-right:none"><a href="cover.php" class="logo"><img src="cal.png" width="30px" height="30px"><strong> Skylabs </strong>Appointment Booking System</a></li>
+					<li style="float:left;border-right:none"><a href="cover.php" class="logo"><img src="head.png" width="30px" height="30px"><strong> ITI </strong>Appointment Booking System</a></li>
 					<li><a href="locateus.php">Locate Us</a></li>
 					<li><a href="#home">Home</a></li>
 				</ul>
