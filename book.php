@@ -52,7 +52,7 @@ function getDay(val) {
 <body style="background-image:url(images/bookback.jpg)">
 	<div class="header">
 		<ul>
-			<li style="float:left;border-right:none"><a href="ulogin.php" class="logo"><img src="images/cal.png" width="30px" height="30px"><strong> Skylabs </strong>Appointment Booking System</a></li>
+			<li style="float:left;border-right:none"><a href="ulogin.php" class="logo"><img src="images/head.png" width="30px" height="30px"><strong> ITI </strong>Client Intake System</a></li>
 			<li><a href="book.php">Book Now</a></li>
 			<li><a href="ulogin.php">Home</a></li>
 		</ul>
