@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="main.css">
 			<div class="header">
 				<ul>
-					<li style="float:left;border-right:none"><a href="cover.php" class="logo"><img src="images/head.png" width="30px" height="30px"><strong> ITI </strong>Client Intake System</a></li>
+					<li style="float:left;border-right:none"><a href="cover.php" class="logo"><img src="images/iti-logo.png" width="30px" height="30px"><strong> ITI </strong>Client Intake System</a></li>
 					<li><a href="locateus.php">Locate Us</a></li>
 					<li><a href="#home">Home</a></li>
 				</ul>
