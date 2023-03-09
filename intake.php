@@ -60,7 +60,7 @@ function getDay(val) {
 	<form action="book.php" method="post">
 	<div class="sucontainer" style="background-image:url(images/bookback.jpg)">
 		<label><b>Name:</b></label><br>
-		<input type="text" placeholder="Enter Full name of patient" name="fname" required><br>
+		<input type="text" placeholder="Enter Full name of caller if different to client" name="fname" required><br>
 		
 		<label><b>Gender</b></label><br>
 		<input type="radio" name="gender" value="female">Female

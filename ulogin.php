@@ -14,7 +14,7 @@
 	<form method="post">
       <button type="button" onclick="window.location.href='book.php'" style="background-color:#2B4F76">Book Appointment</button>
 	  <button type="button" onclick="window.location.href='viewpatientappointments.php'" style="background-color:#2B4F76">Show Appointments</button>
-	  <button type="submit" name="cancel" style="float:center;background-color:#2B4F76">Cancel Booking</button>
+	  <button type="button" onclick="window.location.href='intake.php'" style="background-color:#2B4F76">Intake</button><button type="submit" name="cancel" style="float:center;background-color:#2B4F76">Cancel Booking</button>
 	  <button type="submit" name="logout" style="float:right;background-color:#2B4F76">Log Out</button>
 	</form>
     </div>
