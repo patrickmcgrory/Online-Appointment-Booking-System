@@ -59,13 +59,55 @@ function getDay(val) {
 	</div>
 	<form action="book.php" method="post">
 	<div class="sucontainer" style="background-image:url(images/bookback.jpg)">
-		<label><b>Name:</b></label><br>
+
+	<!-- Handle Contact Type and Source -->
+	<label for="contact_type">Contact Type:</label>
+	<select name="contact_type" id="contact_type">
+		<option value="please_select">Please select</option>
+		<option value="call_answered">Call Answered</option>
+		<option value="voicemail_email">Voicemail or email</option>
+		<option value="website_formstack">Website or Formstack</option>
+		<option value="other_email">Other Email</option>
+	</select>
+
+	<label for="contact_source">Contact Source:</label>
+	<select name="contact_source" id="contact_source">
+		<option value="please_select">Please select</option>
+		<option value="website">Website</option>
+		<option value="internet">Internet</option>
+		<option value="insurance_referred">Insurance Referred</option>
+		<option value="primary_physician">Primary Physician</option>
+		<option value="previous_iti_client">Previous ITI Client</option>
+		<option value="friend_referred">Friend Referred</option>
+		<option value="marketing">Marketing</option>
+		<option value="group_marketing">Group Marketing</option>
+	</select>
+	<br> <br>
+	
+	<!-- Handle Caller and Client Details	-->
+		<label><b>Caller Name:</b></label><br>
 		<input type="text" placeholder="Enter Full name of caller if different to client" name="fname" required><br>
+
+		<label><b>Client First Name:</b></label><br>
+		<input type="text" placeholder="Client First Name" name="fname" required><br>
+
+		<label><b>Client Last Name:</b></label><br>
+		<input type="text" placeholder="Client Last Name" name="fname" required><br>
+
+		<label><b>Client Phone:</b></label><br>
+		<input type="text" placeholder="Client Phone" name="fname" required><br>
+
+		<label><b>Client email:</b></label><br>
+		<input type="text" placeholder="Client email" name="fname" required><br>
 		
 		<label><b>Gender</b></label><br>
 		<input type="radio" name="gender" value="female">Female
 		<input type="radio" name="gender" value="male">Male
 		<input type="radio" name="gender" value="other">Other<br><br>
+
+		<label><b>Is Text OK?</b></label><br>
+		<input type="radio" name="text_ok" value="yes">Yes
+		<input type="radio" name="text" value="no">No<br><br>
 	
 		<label style="font-size:20px" >City:</label><br>
 		<select name="city" id="city-list" class="demoInputBox"  onChange="getTown(this.value);" style="width:100%;height:35px;border-radius:9px">
