@@ -57,7 +57,7 @@ function getDay(val) {
 			<li><a href="ulogin.php">Home</a></li>
 		</ul>
 	</div>
-	<form action="book.php" method="post">
+	<form action="intake.php" method="post">
 	<div class="sucontainer" style="background-image:url(images/bookback.jpg)">
 
 	<!-- Handle Contact Type and Source -->
@@ -83,47 +83,48 @@ function getDay(val) {
 		<option value="group_marketing">Group Marketing</option>
 	</select>
 	<br> <br>
-	
 	<!-- Handle Caller and Client Details	-->
 		<label><b>Caller Name:</b></label><br>
-		<input type="text" placeholder="Enter Full name of caller if different to client" name="fname" required><br>
+		<input type="text" placeholder="Enter Full name of caller if different to client" name="caller_name" required><br>
 
 		<label><b>Client First Name:</b></label><br>
-		<input type="text" placeholder="Client First Name" name="fname" required><br>
+		<input type="text" placeholder="Client First Name" name="client_first_name" required><br>
 
 		<label><b>Client Last Name:</b></label><br>
-		<input type="text" placeholder="Client Last Name" name="fname" required><br>
+		<input type="text" placeholder="Client Last Name" name="client_last_name" required><br>
 
 		<label><b>Client Phone:</b></label><br>
-		<input type="text" placeholder="Client Phone" name="fname" required><br>
+		<input type="tel" placeholder="Client Phone" name="client_phone" required><br>
 
 		<label><b>Client email:</b></label><br>
-		<input type="text" placeholder="Client email" name="fname" required><br>
+		<input type="email" placeholder="Client email" name="client_email" required><br>
 		
 		<label><b>Gender</b></label><br>
-		<input type="radio" name="gender" value="female">Female
-		<input type="radio" name="gender" value="male">Male
-		<input type="radio" name="gender" value="other">Other<br><br>
+		<input type="radio" name="client_gender" value="female">Female
+		<input type="radio" name="client_gender" value="male">Male
+		<input type="radio" name="client_gender" value="other">Other<br><br>
 
 		<label><b>Is Text OK?</b></label><br>
 		<input type="radio" name="text_ok" value="yes">Yes
-		<input type="radio" name="text" value="no">No<br><br>
-	
+		<input type="radio" name="text_ok" value="no">No<br><br>
+	<!--
 		<label style="font-size:20px" >City:</label><br>
 		<select name="city" id="city-list" class="demoInputBox"  onChange="getTown(this.value);" style="width:100%;height:35px;border-radius:9px">
 		<option value="">Select City</option>
+-->
 		<?php
 		$sql1="SELECT distinct(city) FROM clinic";
          $results=$conn->query($sql1); 
 		while($rs=$results->fetch_assoc()) { 
 		?>
 		<option value="<?php echo $rs["city"]; ?>"><?php echo $rs["city"]; ?></option>
+	-->
 		<?php
 		}
 		?>
 		</select>
         <br>
-	
+	<!--
 		<label style="font-size:20px" >Town:</label><br>
 		<select id="town-list" name="Town" onChange="getClinic(this.value);" style="width:100%;height:35px;border-radius:9px">
 		<option value="">Select Town</option>
@@ -143,26 +144,49 @@ function getDay(val) {
 		<label><b>Date of Visit:</b></label><br>
 		<input type="date" name="dov" onChange="getDay(this.value);" min="<?php echo date('Y-m-d');?>" max="<?php echo date('Y-m-d',strtotime('+7 day'));?>" required><br><br>
 		<div id="datestatus"> </div>
-		
+	-->	
 		<div class="container">
 			<button type="submit" style="position:center" name="submit" value="Submit">Submit</button>
 		</div>
-<?php
+<?php 
 session_start();
 if(isset($_POST['submit']))
 {
 		
 		include 'dbconfig.php';
-		$fname=$_POST['fname'];
-		$gender=$_POST['gender'];
-		$username=$_SESSION['username'];
-		$cid=$_POST['Clinic'];
-		$did=$_POST['Doctor'];
-		$dov=$_POST['dov'];
-		$status="Booking Registered.Wait for the update";
+		$contact_type=$_POST['contact_type'];
+		$contact_source=$_POST['contact_source'];
+		$user=$_SESSION['username'];
+		$caller_name=$_POST['caller_name'];
+		$client_first_name=$_POST['client_first_name'];
+		$client_last_name=$_POST['client_last_name'];
+		$client_phone=$_POST['client_phone'];
+		$client_email=$_POST['client_email'];
+		$client_gender=$POST['client_gender'];
+
+		$contact_status="Initiated";
 		$timestamp=date('Y-m-d H:i:s');
-		$sql = "INSERT INTO book (Username,Fname,Gender,CID,DID,DOV,Timestamp,Status) VALUES ('$username','$fname','$gender','$cid','$did','$dov','$timestamp','$status') ";
-		if(!empty($_POST['fname'])&&!empty($_POST['gender'])&&!empty($_SESSION['username'])&&!empty($_POST['Clinic'])&&!empty($_POST['Doctor']) && !empty($_POST['dov']))
+		$sql = "INSERT INTO intake (user,caller_name,contact_type,contact_source, client_first_name,client_last_name,client_phone,client_email, contact_status, client_gender) VALUES ('$user','$caller_name','$contact_type', '$contact_source','$client_first_name','$client_last_name','$client_phone','$client_email','$contact_status', '$client_gender') ";
+		echo $conn;
+		echo $contact_type;
+		echo $contact_source;
+		echo$user;
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "wt_database";
+		
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error) {
+		  die("Connection failed: " . $conn->connect_error);
+		} 
+	}
+	?>
+	
+		/*
+		if(!empty($_POST['caller_name'])&&!empty($_POST['contact_type'])&&!empty($_SESSION['username'])&&!empty($_POST['contact_source'])&&!empty($_POST['client_first_name']) && !empty($_POST['client_last_name']))
 		{
 			$checkday = strtotime($dov);
 			$compareday = date("l", $checkday);
@@ -200,8 +224,7 @@ if(isset($_POST['submit']))
 		{
 			echo "Enter data properly!!!!";
 		}
-}
-?>
+		*/
 	</form>
 </body>
 </html>
