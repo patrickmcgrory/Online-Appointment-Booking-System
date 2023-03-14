@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-<body style="background-image:url(images/practice.jpg)">
+<body style="background-image:url(images/p2.jpg)">
 <link rel="stylesheet" href="main.css">
 			<div class="header">
 				<ul>
-					<li style="float:left;border-right:none"><a href="cover.php" class="logo"><img src="images/iti-logo.png" width="30px" height="30px"><strong> ITI </strong>Client Intake System</a></li>
+					<li style="float:left;border-right:none"><a href="cover.php" class="logo"><img src="images/cal.png" width="30px" height="30px"><strong> Skylabs </strong>Appointment Booking System</a></li>
 					<li><a href="locateus.php">Locate Us</a></li>
 					<li><a href="#home">Home</a></li>
 				</ul>
 			</div>
 			<div class="center">
-				<h1>Welcome to ITI</h1><br>
-				<p style="text-align:center;color:black;font-size:30px;top:35%">Client Intake System</p><br>
+				<h1>Skylabs</h1><br>
+				<p style="text-align:center;color:black;font-size:30px;top:35%">Online Appointment Booking System</p><br>
 				<button onclick="document.getElementById('id01').style.display='block'" style="position:absolute;top:50%;left:50%">Login</button>
 				
 			</div>	

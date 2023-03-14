@@ -2,9 +2,10 @@
 <head>
 <link rel="stylesheet" href="main.css">
 <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
-</head><?php include "dbconfig.php"; ?>
-<script>
-function getTown(val) {
+</head>
+<?php include "dbconfig.php"; ?>
+// <script>
+/*function getTown(val) {
 	$.ajax({
 	type: "POST",
 	url: "get_town.php",
@@ -34,7 +35,7 @@ function getDoctorday(val) {
 	}
 	});
 }
-
+*/
 function getDay(val) {
 	var cidval=document.getElementById("clinic-list").value;
 	var didval=document.getElementById("doctor-list").value;
@@ -118,7 +119,6 @@ function getDay(val) {
 		while($rs=$results->fetch_assoc()) { 
 		?>
 		<option value="<?php echo $rs["city"]; ?>"><?php echo $rs["city"]; ?></option>
-	-->
 		<?php
 		}
 		?>
